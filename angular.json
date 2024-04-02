@@ -16,9 +16,14 @@
             "outputPath": "dist/zay-shop",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.css",
               "src/assets/css/bootstrap.min.css",
@@ -81,15 +86,34 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           }
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "wdio-run": {
+          "builder": "@wdio/schematics:wdio",
+          "options": {
+            "devServerTarget": "zay-shop:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "zay-shop:serve:production"
+            }
+          }
         }
       }
     }
